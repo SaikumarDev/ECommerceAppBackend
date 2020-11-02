@@ -1,13 +1,19 @@
-var express= require('express');
+ var express= require('express');
 
 var mongoose=require('mongoose');
 
  var app= express();
 
+ var cors=require('cors');
+
  var ProductRoute= require('./routes/product.route');
 
 
  app.use(express.json());
+
+ app.use(express.urlencoded({extended:true}));
+
+ app.use(cors());
 
 
  mongoose.connect('mongodb://localhost/farmit',{ useNewUrlParser: true, useUnifiedTopology: true}, function(err){
@@ -21,7 +27,6 @@ var mongoose=require('mongoose');
     }
  });
  
-
  app.use(ProductRoute);
 
  app.listen(9013,function(){

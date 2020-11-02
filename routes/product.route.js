@@ -7,6 +7,8 @@ var router=express.Router();
 
 // Restful API  -  /addProduct - endpoint
 router.post('/addProduct',ProductController.addProduct);
+router.get('/getAllProducts', ProductController.getAllProducts);
+router.delete('/deleteProduct/:pid',ProductController.deleteProduct);
 
 
 module.exports=router;
