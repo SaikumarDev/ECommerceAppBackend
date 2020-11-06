@@ -9,6 +9,7 @@ var router=express.Router();
 router.post('/addProduct',ProductController.addProduct);
 router.get('/getAllProducts', ProductController.getAllProducts);
 router.delete('/deleteProduct/:pid',ProductController.deleteProduct);
+router.put('/updateProduct/:pid',ProductController.updateProduct);
 
 
 module.exports=router;

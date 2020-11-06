@@ -19,7 +19,6 @@ exports.addProduct=function(req,res){
          }
      })
 
-  
 
 }
 
@@ -53,4 +52,25 @@ exports.deleteProduct= (req,response) => {
            }
        }
    })
+}
+
+
+exports.updateProduct= function(req,response){
+
+    console.log(req.params.pid);
+
+    var pid=req.params.pid;
+
+     Product.findOneAndUpdate({pid:pid},req.body,(err,doc,res) => {
+         if(err){
+             console.log('error',err);
+             response.send({error:err})
+         }
+               console.log(req.body.price);
+               console.log(doc.price);
+           if(req.body.price == doc.price){
+               console.log("inside");
+            response.send({status:true})
+           }
+     })
 }
