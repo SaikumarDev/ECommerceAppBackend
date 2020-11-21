@@ -11,8 +11,11 @@ var ProductSchema= new mongoose.Schema(
       },
        price: {
            type: Number
-       }
+       },
+       imgsrc: {
+        type: String
+    }
+
     }
 );
-
 module.exports=mongoose.model('product',ProductSchema);
